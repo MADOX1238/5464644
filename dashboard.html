@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الصفحة الرئيسية</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #4267B2;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .container {
+      margin: 20px auto;
+      max-width: 800px;
+      text-align: center;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .welcome-message {
+      font-size: 20px;
+      color: #333;
+    }
+    .logout-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #4267B2;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .logout-button:hover {
+      background-color: #365899;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    الصفحة الرئيسية
+  </header>
+
+  <div class="container" id="main-container">
+    <p class="welcome-message">مرحبًا بك في تطبيق Spherely!</p>
+    <button class="logout-button" id="logout-button">تسجيل الخروج</button>
+  </div>
+
+  <script>
+    // Check if the user is logged in
+    if (!sessionStorage.getItem('loggedIn')) {
+      // If not logged in, redirect to login page
+      window.location.href = "spherely.html";
+    }
+
+    // Logout functionality
+    document.getElementById('logout-button').addEventListener('click', () => {
+      // Clear session storage on logout
+      sessionStorage.removeItem('loggedIn');
+      alert('تم تسجيل الخروج بنجاح!');
+      window.location.href = "spherely.html";
+    });
+  </script>
+
+</body></html>
